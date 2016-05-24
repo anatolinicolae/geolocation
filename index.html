@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html">
+    <title>GeoAPI</title>
+    <style>
+      body {
+        font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        font-weight: bold;
+      }
+
+      section,
+      footer {
+        max-width: 400px;
+        margin: 0 auto;
+      }
+
+      #map {
+        background: url('bg.png') no-repeat center center;
+        width: 400px;
+        height: 300px;
+        border-radius: 4px;
+        margin-top: 40px;
+      }
+
+      .location_indicator{
+        margin: -15px;
+        position: relative;
+        left: 50%;
+        top: 50%;
+      }
+
+      .location_indicator:before, .location_indicator:after{
+        position: absolute;
+        content: "";
+      }
+
+      .location_indicator:before{
+        width: 20px;
+        height: 20px;
+        border-radius: 100% 100% 100% 0;
+        box-shadow: 0px 0px 0px 2px rgba(255,255,255,1);
+        -webkit-animation: mapping 1s linear infinite;
+           -moz-animation: mapping 1s linear infinite;
+                animation: mapping 1s linear infinite;
+        -webkit-transform: rotate(-46deg);
+           -moz-transform: rotate(-46deg);
+                transform: rotate(-46deg);
+        z-index: 2;
+
+      }
+
+      .location_indicator:after{
+        width: 30px;
+        height: 10px;
+        border-radius: 100%;
+        left: -4px;
+        background-color: rgba(255, 255, 255, 0.2);
+        top: 24px;
+        z-index: 1;
+      }
+
+      @-webkit-keyframes mapping{
+        0% {top: 0;}
+        50%{top: -5px;}
+        100% {top:0; }
+      }
+      @-moz-keyframes mapping{
+        0% {top: 0;}
+        50%{top: -5px;}
+        100% {top:0; }
+      }
+      @-keyframes mapping{
+        0% {top: 0;}
+        50%{top: -5px;}
+        100% {top:0; }
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div id="map">
+        <div class="location_indicator"></div>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2016 • Anatoli Nicolae • Alessio Nocito</p>
+    </footer>
+
+    <!-- Maps API -->
+    <script src="//maps.google.com/maps/api/js?sensor=true&key=AIzaSyCkv6g37K_D8i3lMD_RBEzOzYJ1Cdg5_VA"></script>
+
+    <!-- GeoApp -->
+    <script src="app.js"></script>
+  </body>
+</html>
